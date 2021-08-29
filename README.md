@@ -1,2 +1,2 @@
 # django_blog
-django first project_do it django
+장고 첫번째 
