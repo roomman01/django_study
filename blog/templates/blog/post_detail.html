@@ -13,6 +13,8 @@
         <link href="{% static 'blog/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
         <!-- Custom style for this template-->
         <link rel="stylesheet" href="{% static 'blog/css/blog-post.css' %}" media="screen">
+        <!-- 아이콘 이미지 JS -->
+        <script src="https://kit.fontawesome.com/9e05cb2559.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <!-- Navigation-->
@@ -61,6 +63,25 @@
                     <!-- Post content-->
                     <p>{{ post.content }}</p>
                     <hr />
+
+                    {% if post.file_upload %}
+                        <a href="{{ post.file_upload.url }}" role="button" class="btn btn-outline-secondary" download>
+                            Download:
+
+                            {% if post.get_file_ext == 'csv' %}
+                                <i class="fas fa-file-csv"></i>
+                            {% elif post.get_file_ext == 'xlsx' or post.get_file_ext == 'xls' %}
+                                <i class="fas fa-file-excel"></i>
+                            {% elif post.get_file_ext == 'doc' or post.get_file_ext == 'docx' %}
+                                <i class="fas fa-file-word"></i>
+                            {% else %}
+                                <i class="far fa-save"></i>
+                            {% endif %}
+                            {{ post.get_file_name }}
+                        </a>
+
+                    {% endif %}
+
                     <!-- Comments form-->
                     <div class="card my-4">
                         <h5 class="card-header">Leave a Comment:</h5>
