@@ -1,6 +1,0 @@
-# Django 공부
-
-## 1. 장고 프로젝트 생성
- django-admin startproject 이름입력 (.) .입력시 현재경로에 생성
- 
- 
