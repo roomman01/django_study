@@ -100,6 +100,33 @@
 		admin.site.register(Tablename1)
 		admin.site.register(Tablename2) 
 
+##### 2.1.3 DB 변경사항 반영
+테이블 생성, 필드 수정, 삭제 등 DB 변경사항이 있을 경우, 이를 실제로 DB에 반영하는 작업을 수행해야함
+
+		python manage.py makemigrations
+		python manage.py migrate
+
+위 작업 수행 시 
+
+	python manage.py makemigrations 실행 시 
+	
+	appname\migrations\00001_initial.py
+		- Create model Tablename
+		- Add field fieldname to choice 
+	
+	python manage.py migrate 실행 시
+	operations to perform:
+		Apply all migrations: admin, auth .....
+	Running migrations:
+		Applying appname.001_initial...OK
+	
+	
+
+와 같은 메세지가 표시되며 마이그레이션이 수행됨
+
+#### 2.2 View 및 Template
+
+
 > Written with [StackEdit](https://stackedit.io/).
 
 
